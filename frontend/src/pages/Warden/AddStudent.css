@@ -1,0 +1,245 @@
+/* src/pages/Warden/AddStudent.css */
+.add-student-container {
+  min-height: 100vh;
+  background: #f8f9fb;
+  padding: 30px;
+  font-family: "Cambria", "Times New Roman", serif;
+}
+
+.add-student-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+.add-student-header h1 {
+  font-size: 32px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: "Cambria", "Times New Roman", serif;
+}
+
+.add-student-header p {
+  font-size: 18px;
+  color: #666;
+  margin: 0;
+  font-family: "Cambria", "Times New Roman", serif;
+}
+
+.add-student-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.student-form {
+  padding: 40px;
+}
+
+.form-section {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 30px;
+}
+
+.form-section h2 {
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #667eea;
+  font-family: "Cambria", "Times New Roman", serif;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  font-family: "Cambria", "Times New Roman", serif;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 15px;
+  border: 2px solid #e6e6e6;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: "Cambria", "Times New Roman", serif;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+  font-family: "Cambria", "Times New Roman", serif;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: "Cambria", "Times New Roman", serif;
+}
+
+.form-group input[readonly] {
+  background-color: #f8f9fa;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Cambria", "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-student-container {
+    padding: 20px;
+  }
+
+  .student-form {
+    padding: 25px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .add-student-header h1 {
+    font-size: 26px;
+  }
+
+  .add-student-header p {
+    font-size: 16px;
+  }
+
+  .form-section h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-student-container {
+    padding: 15px;
+  }
+
+  .student-form {
+    padding: 20px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}
+
+/* Form Validation Styles */
+.form-group input:invalid:not(:focus):not(:placeholder-shown),
+.form-group select:invalid:not(:focus) {
+  border-color: #e74c3c;
+}
+
+.form-group input:valid:not(:focus):not(:placeholder-shown),
+.form-group select:valid:not(:focus) {
+  border-color: #27ae60;
+}
+
+/* Loading State */
+.submit-btn:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Add this to your AddStudent.css file */
+.message {
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-family: "Cambria", "Times New Roman", serif;
+  text-align: center;
+}
+
+.message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.submit-btn:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}

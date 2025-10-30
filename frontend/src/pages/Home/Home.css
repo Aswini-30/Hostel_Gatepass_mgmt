@@ -1,0 +1,173 @@
+/* Apply Cambria font to whole page */
+body, html {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  z-index: 100;
+  background-color: #1d0be2;
+  color: white;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+  color: #ffd700;
+}
+
+/* Home/Login Section */
+.home-section {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  margin-top: 70px;
+  transition: background-image 1s ease-in-out;
+}
+
+.home-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* Login Box */
+.login-box {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  color: #000;
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.login-box h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #0a3d62;
+}
+
+.login-box input
+ {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+}
+.role-select {
+  width: 98%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+}
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #1d0be2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #0b078e;
+}
+
+/* Forgot Password link */
+.forgot-password {
+  color: #1d0be2;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  margin: 5px 0 10px 0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.forgot-password:hover {
+  color: #0a3d62;
+}
+
+/* Google Sign-in button */
+.google-signin-btn {
+  margin-top: 15px;
+  background-color: #fff;
+  color: #1d0be2;
+  border: 1px solid #1d0be2;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.google-signin-btn:hover {
+  background-color: #1d0be2;
+  color: #fff;
+}
+
+/* About and Contact Sections */
+.about-section,
+.contact-section {
+  background: #fff;
+  color: #000;
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 50px auto;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.about-section h2,
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1d0be2;
+}
+
+.about-section p,
+.contact-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}

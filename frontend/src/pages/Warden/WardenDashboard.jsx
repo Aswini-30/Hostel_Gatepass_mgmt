@@ -17,6 +17,8 @@ import {
   FaHistory
 } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 const WardenDashboard = () => {
   const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState("Dashboard");
@@ -72,7 +74,7 @@ const WardenDashboard = () => {
       try {
         const token = localStorage.getItem('wardenToken');
         if (token) {
-          const response = await fetch('http://localhost:5000/api/wardens/dashboard-counts', {
+          const response = await fetch('${API}/api/wardens/dashboard-counts', {
             headers: {
               'Authorization': `Bearer ${token}`
             }
@@ -106,7 +108,7 @@ const WardenDashboard = () => {
       try {
         const token = localStorage.getItem('wardenToken');
         if (token) {
-          const response = await fetch('http://localhost:5000/api/wardens/leave-analytics', {
+          const response = await fetch('${API}/api/wardens/leave-analytics', {
             headers: {
               'Authorization': `Bearer ${token}`
             }

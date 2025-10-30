@@ -4,6 +4,8 @@ import axios from "axios";
 import "./StudentsList.css";
 import { FaEdit, FaTrash, FaSearch, FaUserGraduate, FaTimes } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 const StudentsList = () => {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,7 +31,7 @@ const StudentsList = () => {
   const fetchStudents = async () => {
     try {
       const token = localStorage.getItem('wardenToken');
-      const response = await axios.get('http://localhost:5000/api/wardens/students', {
+      const response = await axios.get('${API}/api/wardens/students', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -82,7 +84,7 @@ const StudentsList = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('wardenToken');
-      await axios.put(`http://localhost:5000/api/wardens/students/${editingStudent._id}`, editForm, {
+      await axios.put(`${API}/api/wardens/students/${editingStudent._id}`, editForm, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -101,7 +103,7 @@ const StudentsList = () => {
     if (window.confirm("Are you sure you want to delete this student?")) {
       try {
         const token = localStorage.getItem('wardenToken');
-        await axios.delete(`http://localhost:5000/api/wardens/students/${studentId}`, {
+        await axios.delete(`${API}/api/wardens/students/${studentId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

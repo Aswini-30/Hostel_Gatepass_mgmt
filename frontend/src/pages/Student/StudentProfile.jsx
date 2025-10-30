@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { FaUser, FaIdCard, FaGraduationCap, FaCalendarAlt, FaVenusMars, FaPhone, FaEnvelope, FaBuilding, FaDoorOpen, FaMapMarkerAlt, FaEdit, FaSave, FaTimes } from "react-icons/fa";
 import "./StudentProfile.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 const StudentProfile = () => {
   const navigate = useNavigate();
   const [studentProfile, setStudentProfile] = useState(null);
@@ -23,7 +25,7 @@ const StudentProfile = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/students/profile', {
+      const response = await fetch('${API}/api/students/profile', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -56,7 +58,7 @@ const StudentProfile = () => {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem('studentToken');
-      const response = await fetch('http://localhost:5000/api/students/profile', {
+      const response = await fetch('${API}/api/students/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

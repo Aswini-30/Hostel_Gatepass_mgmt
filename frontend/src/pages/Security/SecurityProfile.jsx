@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./SecurityProfile.css";
 import { FaShieldAlt, FaUser, FaEnvelope, FaPhone, FaIdBadge } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 const SecurityProfile = () => {
   const navigate = useNavigate();
   const [securityData, setSecurityData] = useState(null);
@@ -20,7 +22,7 @@ const SecurityProfile = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/security/profile', {
+      const response = await fetch('${API}/api/security/profile', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

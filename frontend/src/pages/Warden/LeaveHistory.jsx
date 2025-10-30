@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import "./LeaveHistory.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 const LeaveHistory = () => {
   const [leaveHistory, setLeaveHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +24,7 @@ const LeaveHistory = () => {
         return;
       }
 
-      let url = 'http://localhost:5000/api/wardens/leave-history';
+      let url = '${API}/api/wardens/leave-history';
       const params = new URLSearchParams();
 
       if (startDate) params.append('startDate', startDate);

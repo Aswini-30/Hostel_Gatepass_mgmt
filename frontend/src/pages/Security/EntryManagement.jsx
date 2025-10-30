@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./EntryManagement.css";
 import { FaArrowLeft, FaSignInAlt, FaSearch } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 const EntryManagement = () => {
   const navigate = useNavigate();
   const [exitedStudents, setExitedStudents] = useState([]);
@@ -22,7 +24,7 @@ const EntryManagement = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/security/exited-students', {
+      const response = await fetch('${API}/api/security/exited-students', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -42,7 +44,7 @@ const EntryManagement = () => {
   const handleEntry = async (leaveId) => {
     try {
       const token = localStorage.getItem('securityToken');
-      const response = await fetch(`http://localhost:5000/api/security/return/${leaveId}`, {
+      const response = await fetch(`{API}/api/security/return/${leaveId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ParentDashboard.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 const ParentDashboard = () => {
   const navigate = useNavigate();
   const [studentLeaves, setStudentLeaves] = useState([]);
@@ -21,7 +23,7 @@ const ParentDashboard = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/parents/student-leaves', {
+      const response = await fetch('${API}/api/parents/student-leaves', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -44,7 +46,7 @@ const ParentDashboard = () => {
   const approveLeave = async (leaveId) => {
     try {
       const token = localStorage.getItem('parentToken');
-      const response = await fetch(`http://localhost:5000/api/parents/approve-leave/${leaveId}`, {
+      const response = await fetch(`${API}/api/parents/approve-leave/${leaveId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`

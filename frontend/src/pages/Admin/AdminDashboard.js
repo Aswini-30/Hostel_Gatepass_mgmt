@@ -5,8 +5,9 @@ import "./AdminDashboard.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API = import.meta.env.VITE_API_URL;
 // Configure your backend URL
-const API_URL = "http://localhost:5000/api";
+const API_URL = "${API}/api";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();

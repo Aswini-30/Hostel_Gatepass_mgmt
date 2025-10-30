@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LeaveRequest.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 const LeaveRequest = () => {
   const navigate = useNavigate();
   const [leaveType, setLeaveType] = useState("holiday");
@@ -41,7 +43,7 @@ const LeaveRequest = () => {
         emergencyContact: form.emergencyContact
       };
 
-      const response = await fetch('http://localhost:5000/api/students/leave-request', {
+      const response = await fetch('${API}api/students/leave-request', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -9,6 +9,8 @@ import hostelBg from "../../assets/images/hostel2-bg.jpg";
 import hostel1Bg from "../../assets/images/hostel-bg.jpg";
 import hostel2Bg from "../../assets/images/hostel1-bg.jpg";
 
+const API = import.meta.env.VITE_API_URL;
+
 const backgrounds = [hostelBg, hostel1Bg, hostel2Bg];
 
 const Home = () => {
@@ -30,7 +32,7 @@ const Home = () => {
     if (!role) return alert("Please select a role!");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("${API}/api/auth/login", {
         email,
         password,
         role,
@@ -84,7 +86,7 @@ const Home = () => {
     if (!role) return alert("Please select your role first!");
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/forgot-password",
+        "${API}/api/auth/forgot-password",
         { email, role }
       );
       alert(res.data.message);
@@ -99,7 +101,7 @@ const Home = () => {
     if (!role) return alert("Please select a role!");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/google-login", {
+      const res = await axios.post("#{API}/api/auth/google-login", {
         email: userData.email,
         name: userData.name,
         role,

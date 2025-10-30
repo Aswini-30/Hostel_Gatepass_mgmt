@@ -4,6 +4,8 @@ import axios from "axios";
 import "./ParentsList.css";
 import { FaEdit, FaTrash, FaSearch, FaUserCircle } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 const ParentsList = () => {
   const [parents, setParents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,7 +23,7 @@ const ParentsList = () => {
   const fetchParents = async () => {
     try {
       const token = localStorage.getItem('wardenToken');
-      const response = await axios.get('http://localhost:5000/api/wardens/parents', {
+      const response = await axios.get('${API}/api/wardens/parents', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -55,7 +57,7 @@ const ParentsList = () => {
     if (window.confirm("Are you sure you want to delete this parent?")) {
       try {
         const token = localStorage.getItem('wardenToken');
-        await axios.delete(`http://localhost:5000/api/wardens/parents/${parentId}`, {
+        await axios.delete(`${API}/api/wardens/parents/${parentId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -84,7 +86,7 @@ const ParentsList = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('wardenToken');
-      await axios.put(`http://localhost:5000/api/wardens/parents/${editingParent._id}`, editForm, {
+      await axios.put(`${API}/api/wardens/parents/${editingParent._id}`, editForm, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

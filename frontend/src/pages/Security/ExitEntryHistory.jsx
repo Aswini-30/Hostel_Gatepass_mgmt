@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ExitEntryHistory.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 const ExitEntryHistory = () => {
   const navigate = useNavigate();
   const [history, setHistory] = useState([]);
@@ -21,7 +23,7 @@ const ExitEntryHistory = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/security/exit-entry-history', {
+      const response = await fetch('${API}/api/security/exit-entry-history', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

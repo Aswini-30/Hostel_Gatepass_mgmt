@@ -4,6 +4,8 @@ import axios from "axios";
 import "./WardenProfile.css";
 import { FaUser, FaEnvelope, FaVenus, FaMars, FaEdit, FaSave, FaTimes } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 const WardenProfile = () => {
   const navigate = useNavigate();
   const [wardenProfile, setWardenProfile] = useState({
@@ -35,7 +37,7 @@ const WardenProfile = () => {
         }
 
         // Fetch updated profile from API
-        const response = await axios.get('http://localhost:5000/api/wardens/profile', {
+        const response = await axios.get('${API}/api/wardens/profile', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -72,7 +74,7 @@ const WardenProfile = () => {
     setSaving(true);
     try {
       const token = localStorage.getItem('wardenToken');
-      const response = await axios.put('http://localhost:5000/api/wardens/profile', wardenProfile, {
+      const response = await axios.put('${API}/api/wardens/profile', wardenProfile, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

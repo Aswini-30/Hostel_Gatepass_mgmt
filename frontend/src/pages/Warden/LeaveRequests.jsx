@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import "./LeaveRequests.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 const LeaveRequests = () => {
   const [leaveRequests, setLeaveRequests] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +25,7 @@ const LeaveRequests = () => {
         return;
       }
 
-      const response = await fetch("http://localhost:5000/api/wardens/leaves", {
+      const response = await fetch("${API}/api/wardens/leaves", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -47,7 +49,7 @@ const LeaveRequests = () => {
     try {
       const token = localStorage.getItem("wardenToken");
       const response = await fetch(
-        `http://localhost:5000/api/wardens/leaves/${leaveId}`,
+        `${API}/api/wardens/leaves/${leaveId}`,
         {
           method: "PUT",
           headers: {
@@ -79,7 +81,7 @@ const LeaveRequests = () => {
     try {
       const token = localStorage.getItem("wardenToken");
       const response = await fetch(
-        `http://localhost:5000/api/wardens/leaves/${leaveId}/tutor-approval`,
+        `${API}/api/wardens/leaves/${leaveId}/tutor-approval`,
         {
           method: "PUT",
           headers: {
@@ -113,7 +115,7 @@ const LeaveRequests = () => {
     try {
       const token = localStorage.getItem("wardenToken");
       const response = await fetch(
-        `http://localhost:5000/api/wardens/leaves/${leaveId}/parent-approval`,
+        `${API}/api/wardens/leaves/${leaveId}/parent-approval`,
         {
           method: "PUT",
           headers: {

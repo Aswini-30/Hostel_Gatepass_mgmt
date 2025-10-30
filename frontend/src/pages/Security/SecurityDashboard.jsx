@@ -13,6 +13,8 @@ import {
   FaSignInAlt
 } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 const SecurityDashboard = () => {
   const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState("Dashboard");
@@ -37,7 +39,7 @@ const SecurityDashboard = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/security/profile', {
+      const response = await fetch('${API}/api/security/profile', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -62,7 +64,7 @@ const SecurityDashboard = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/security/approved-students', {
+      const response = await fetch('${API}}/api/security/approved-students', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -83,7 +85,7 @@ const SecurityDashboard = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('securityToken');
-      const response = await fetch(`http://localhost:5000/api/security/student/${searchRegisterNumber}`, {
+      const response = await fetch(`${API}/api/security/student/${searchRegisterNumber}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -109,7 +111,7 @@ const SecurityDashboard = () => {
       const token = localStorage.getItem('securityToken');
       const endpoint = action === 'exit' ? 'exit' : 'return';
 
-      const response = await fetch(`http://localhost:5000/api/security/${endpoint}/${leaveId}`, {
+      const response = await fetch(`{${API}/api/security/${endpoint}/${leaveId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`

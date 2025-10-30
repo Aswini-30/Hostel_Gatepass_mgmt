@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./AddParent.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 const AddParent = () => {
   const [form, setForm] = useState({
     parentName: "",
@@ -36,7 +38,7 @@ const AddParent = () => {
         return;
       }
 
-      const response = await axios.post('http://localhost:5000/api/wardens/parents', form, {
+      const response = await axios.post('${API}/api/wardens/parents', form, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddStudent.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 const AddStudent = () => {
   const [form, setForm] = useState({
     fullName: "",
@@ -30,7 +32,7 @@ const AddStudent = () => {
         const token = localStorage.getItem('wardenToken');
         if (!token) return;
 
-        const response = await axios.get('http://localhost:5000/api/auth/profile', {
+        const response = await axios.get('{API}/api/auth/profile', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -71,7 +73,7 @@ const AddStudent = () => {
         return;
       }
 
-      const response = await axios.post('http://localhost:5000/api/wardens/students', form, {
+      const response = await axios.post('{API}/api/wardens/students', form, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

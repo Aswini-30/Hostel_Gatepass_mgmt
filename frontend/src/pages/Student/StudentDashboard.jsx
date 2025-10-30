@@ -12,6 +12,8 @@ import {
   FaBell
 } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 const StudentDashboard = () => {
   const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState("Dashboard");
@@ -65,7 +67,7 @@ const StudentDashboard = () => {
         }
 
         // Fetch student profile
-        const profileResponse = await fetch('http://localhost:5000/api/students/profile', {
+        const profileResponse = await fetch('${API}/api/students/profile', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -84,7 +86,7 @@ const StudentDashboard = () => {
         }
 
         // Fetch leave history
-        const leavesResponse = await fetch('http://localhost:5000/api/students/leaves', {
+        const leavesResponse = await fetch('${API}/api/students/leaves', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -113,7 +115,7 @@ const StudentDashboard = () => {
         }
 
         // Fetch notices
-        const noticesResponse = await fetch('http://localhost:5000/api/students/notices', {
+        const noticesResponse = await fetch('${API}/api/students/notices', {
           headers: {
             'Authorization': `Bearer ${token}`
           }

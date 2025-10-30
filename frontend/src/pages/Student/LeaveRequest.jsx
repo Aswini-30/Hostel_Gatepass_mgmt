@@ -43,7 +43,7 @@ const LeaveRequest = () => {
         emergencyContact: form.emergencyContact
       };
 
-      const response = await fetch('${API}api/students/leave-request', {
+      const response = await fetch('${API}/api/students/leave-request', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

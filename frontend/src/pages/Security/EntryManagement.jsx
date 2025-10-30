@@ -44,7 +44,7 @@ const EntryManagement = () => {
   const handleEntry = async (leaveId) => {
     try {
       const token = localStorage.getItem('securityToken');
-      const response = await fetch(`{API}/api/security/return/${leaveId}`, {
+      const response = await fetch(`${API}/api/security/return/${leaveId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`

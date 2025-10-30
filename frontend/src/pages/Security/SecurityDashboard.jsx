@@ -64,7 +64,7 @@ const SecurityDashboard = () => {
         return;
       }
 
-      const response = await fetch('${API}}/api/security/approved-students', {
+      const response = await fetch('${API}/api/security/approved-students', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -111,7 +111,7 @@ const SecurityDashboard = () => {
       const token = localStorage.getItem('securityToken');
       const endpoint = action === 'exit' ? 'exit' : 'return';
 
-      const response = await fetch(`{${API}/api/security/${endpoint}/${leaveId}`, {
+      const response = await fetch(`${API}/api/security/${endpoint}/${leaveId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`

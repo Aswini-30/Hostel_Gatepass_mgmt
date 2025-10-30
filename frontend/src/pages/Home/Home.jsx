@@ -101,7 +101,7 @@ const Home = () => {
     if (!role) return alert("Please select a role!");
 
     try {
-      const res = await axios.post("#{API}/api/auth/google-login", {
+      const res = await axios.post("${API}/api/auth/google-login", {
         email: userData.email,
         name: userData.name,
         role,
